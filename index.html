@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Midi Doces - Padaria e Confeitaria</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+
+  <style>
+    #carrinho-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #d2691e;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      z-index: 1000;
+      font-weight: bold;
+    }
+    .carrinho-popup {
+      display: none;
+      position: fixed;
+      top: 80px;
+      right: 20px;
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 20px;
+      width: 300px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+    .carrinho-popup.aberto {
+      display: block;
+    }
+    #lista-carrinho li {
+      margin-bottom: 8px;
+    }
+    #finalizar {
+      background-color: #25d366;
+      color: white;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    #finalizar:hover {
+      background-color: #1ebe5b;
+    }
+    
+  </style>
+  <body style="background-image: url(fundo-doces.png);">
+  
+</head>
+<script src="script.js"></script>
+<body>
+  <div id="carrinho-btn" onclick="abrirCarrinho()">🛒 Carrinho (<span id="contador">0</span>)</div>
+ <header>
+  <div class="container header-grid">
+    <div class="logo">
+      <h1><i class="fa-solid fa-mug-hot"></i> Midi Doces</h1>
+      <p class="slogan">Sabores que encantam</p>
+    </div>
+    <nav class="nav-links">
+      <a href="#sobre"><i class="fa-solid fa-circle-info"></i> Sobre</a>
+     
+      <a href="#produtos"><i class="fa-solid fa-cookie-bite"></i> Produtos</a>
+      <a href="#contato"><i class="fa-solid fa-envelope-open-text"></i> Contato</a>
+    </nav>
+  </div>
+</header>
+
+  <main class="container">      
+   <section id="sobre" class="sobre-nos">
+  <h2>Sobre Nós</h2>
+  <p>
+    Somos a <strong>Midi Doces</strong>. Aqui a gente acredita que um pão quentinho e um docinho gostoso fazem qualquer dia ficar melhor. Começamos essa jornada com muita vontade de deixar seu momento mais doce e especial. Vem provar nossas delícias e se apaixonar!
+  </p>
+</section>
+</p>
+    </section>
+
+    
+
+<section id="produtos" class="container">
+  <h2 class="titulo-produtos">Produtos</h2>
+  <div class="galeria-produtos">
+   <div class="card-produto">
+  <img src="imagens/beliscao-goiabada.jpg" alt="Beliscão de Goiabada" />
+  <h3>Beliscão de Goiabada</h3>
+  <p>R$ 5,00</p>
+  <button onclick="adicionarAoCarrinho('Beliscão de Goiabada', 5)">Adicionar ao Carrinho</button>
+</div>
+
+<div class="card-produto">
+  <img src="imagens/biscoito-de-maisena.jpg" alt="Biscoito de Maizena" />
+  <h3>Biscoito de Maizena</h3>
+  <p>R$ 4,00</p>
+  <button onclick="adicionarAoCarrinho('Biscoito de Maizena', 4)">Adicionar ao Carrinho</button>
+</div>
+
+<div class="card-produto">
+  <img src="imagens/bolo_cenoura.jpg" alt="Bolo de Cenoura" />
+  <h3>Bolo de Cenoura</h3>
+  <p>R$ 22,00</p>
+  <button onclick="adicionarAoCarrinho('Bolo de Cenoura', 22)">Adicionar ao Carrinho</button>
+</div>
+
+<div class="card-produto">
+  <img src="imagens/bolo_chocolate.jpg" alt="Bolo de Chocolate" />
+  <h3>Bolo de Chocolate</h3>
+  <p>R$ 25,00</p>
+  <button onclick="adicionarAoCarrinho('Bolo de Chocolate', 25)">Adicionar ao Carrinho</button>
+</div>
+
+<div class="card-produto">
+  <img src="imagens/bolo-de-fuba.jpg" alt="Bolo de Fubá" />
+  <h3>Bolo de Fubá</h3>
+  <p>R$ 20,00</p>
+  <button onclick="adicionarAoCarrinho('Bolo de Fubá', 20)">Adicionar ao Carrinho</button>
+</div>
+
+<div class="card-produto">
+  <img src="imagens/Cesta-cafe.jpg" alt="Cesta de Café" />
+  <h3>Cesta de Café da Manhã</h3>
+  <p>R$ 45,00</p>
+  <button onclick="adicionarAoCarrinho('Cesta de Café da Manhã', 45)">Adicionar ao Carrinho</button>
+</div>
+
+<div class="card-produto">
+  <img src="imagens/pao-caseiro.jpg" alt="Pão Caseiro" />
+  <h3>Pão Caseiro</h3>
+  <p>R$ 7,00</p>
+  <button onclick="adicionarAoCarrinho('Pão Caseiro', 7)">Adicionar ao Carrinho</button>
+</div>
+
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Midi Doces. Todos os direitos reservados.</p>
+      <p>📍 Rua do Pão, 123 - Centro</p>
+      <p>📧 contato@mididoces.com.br</p>
+      <p>📞 (11) 99999-9999</p>
+      <div class="redes-sociais">
+        <a href="https://www.instagram.com/mididoces" target="_blank">📸 Instagram</a>
+        <a href="https://www.facebook.com/mididoces" target="_blank">📘 Facebook</a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/5516981492681" class="whatsapp" target="_blank">📞 WhatsApp</a>
+
+  <div id="carrinho" class="carrinho-popup">
+    <h3>Seu Carrinho</h3>
+    <ul id="lista-carrinho"></ul>
+    <p><strong>Total:</strong> R$ <span id="total">0.00</span></p>
+    <button id="finalizar" onclick="finalizarPedido()">Finalizar Pedido no WhatsApp</button>
+  </div>
+
+  <script>
+    let carrinho = [];
+    let total = 0;
+
+    function adicionarAoCarrinho(produto, preco) {
+      carrinho.push({ produto, preco });
+      total += preco;
+      atualizarCarrinho();
+    }
+
+    function atualizarCarrinho() {
+      document.getElementById('contador').innerText = carrinho.length;
+      const lista = document.getElementById('lista-carrinho');
+      lista.innerHTML = '';
+      carrinho.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = `${item.produto} - R$ ${item.preco.toFixed(2)}`;
+        lista.appendChild(li);
+      });
+      document.getElementById('total').innerText = total.toFixed(2);
+    }
+
+    function abrirCarrinho() {
+      document.getElementById('carrinho').classList.toggle('aberto');
+    }
+
+    function finalizarPedido() {
+      let mensagem = 'Olá! Quero fazer o seguinte pedido:%0A';
+      carrinho.forEach(item => {
+        mensagem += `- ${item.produto}: R$ ${item.preco.toFixed(2)}%0A`;
+      });
+      mensagem += `%0ATotal: R$ ${total.toFixed(2)}`;
+      window.open(`https://wa.me/5516981492681?text=${mensagem}`, '_blank');
+    }
+  </script>
+</body>
+
+
+</html>
